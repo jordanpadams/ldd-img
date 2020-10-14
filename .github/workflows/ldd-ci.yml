@@ -108,11 +108,6 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R ${{ env.DEPLOY_PATH }}
 
-      - name: Publish new dev release
-        run: |
-           pip install pds-github-util
-           ldd-release --ingest_ldd_src_dir ${{github.workspace}}/src --ldd_output_path ${{ env.DEPLOY_PATH }} --token ${{ secrets.ADMIN_GITHUB_TOKEN }} --dev
-
       - name: If Release Branch, move to release dir
         shell: bash
         run: |
