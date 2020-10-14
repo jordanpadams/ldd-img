@@ -112,6 +112,7 @@ jobs:
         shell: bash
         run: |
           if [[ "${{github.ref}}" == *"release"* ]]; then
+            echo "DEPLOY_PATH=${{github.workspace}}/build/release" >> $GITHUB_ENV
             cp -R ${{ env.DEPLOY_PATH }}/* ${{github.workspace}}/build/release/
             rm -fr ${{github.workspace}}/build/development
           fi
